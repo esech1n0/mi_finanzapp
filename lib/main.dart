@@ -46,6 +46,42 @@ class MiFinanzappApp extends StatelessWidget {
           ),
           iconTheme: IconThemeData(color: Color(0xFFEAE6F5)),
         ),
+        snackBarTheme: SnackBarThemeData(
+          behavior: SnackBarBehavior.floating,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12),
+          ),
+          contentTextStyle: const TextStyle(
+            color: Colors.white,
+            fontSize: 14,
+            fontWeight: FontWeight.w500,
+          ),
+        ),
+        bottomSheetTheme: const BottomSheetThemeData(
+          backgroundColor: Color(0xFF1D172E),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+          ),
+        ),
+        dialogTheme: DialogThemeData(
+          backgroundColor: const Color(0xFF1D172E),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16),
+          ),
+          titleTextStyle: const TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+            fontSize: 18,
+          ),
+          contentTextStyle: const TextStyle(
+            color: Color(0xFFB8B1CC),
+            fontSize: 14,
+          ),
+        ),
+        dividerTheme: const DividerThemeData(
+          color: Color(0xFF2E2448),
+          thickness: 1,
+        ),
       ),
       home: const PrincipalScreen(),
     );

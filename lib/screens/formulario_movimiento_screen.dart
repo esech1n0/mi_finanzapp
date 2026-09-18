@@ -482,6 +482,8 @@ class _FormularioMovimientoScreenState
                         Switch(
                           value: _gastoHormiga,
                           activeThumbColor: const Color(0xFF9D65FF),
+                          activeTrackColor: const Color(0xFF9D65FF).withAlpha(80),
+                          inactiveTrackColor: const Color(0xFF2E2448),
                           onChanged: (val) {
                             setState(() => _gastoHormiga = val);
                           },

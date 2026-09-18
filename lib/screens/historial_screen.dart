@@ -130,13 +130,22 @@ class _HistorialScreenState extends State<HistorialScreen> {
       appBar: AppBar(
         backgroundColor: const Color(0xFF120E1C),
         elevation: 0,
-        title: const Text(
-          'Historial',
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 20,
-            color: Color(0xFFF3EFFF),
-          ),
+        title: const Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(Icons.receipt_long_rounded, color: Color(0xFF9D65FF)),
+            SizedBox(width: 10),
+            Flexible(
+              child: Text(
+                'Historial',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
+                  color: Color(0xFFF3EFFF),
+                ),
+              ),
+            ),
+          ],
         ),
         actions: [
           IconButton(
@@ -296,11 +305,22 @@ class _HistorialScreenState extends State<HistorialScreen> {
         borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
       ),
       builder: (ctx) => Padding(
-        padding: const EdgeInsets.all(20),
+        padding: const EdgeInsets.fromLTRB(20, 12, 20, 20),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
+            Center(
+              child: Container(
+                width: 36,
+                height: 4,
+                margin: const EdgeInsets.only(bottom: 12),
+                decoration: BoxDecoration(
+                  color: const Color(0xFF4C337C),
+                  borderRadius: BorderRadius.circular(2),
+                ),
+              ),
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -329,6 +349,7 @@ class _HistorialScreenState extends State<HistorialScreen> {
             _buildDetalleFila('Descripción', mov.descripcion),
             _buildDetalleFila('Monto', '\$${mov.monto.toStringAsFixed(2)}'),
             _buildDetalleFila('Categoría', mov.categoria),
+            _buildDetalleFila('Fecha', '${mov.fecha.day.toString().padLeft(2, '0')}/${mov.fecha.month.toString().padLeft(2, '0')}/${mov.fecha.year}'),
             _buildDetalleFila('Ubicación', mov.ubicacion == UbicacionMovimiento.banco ? 'Banco' : 'Efectivo'),
             _buildDetalleFila('Gasto hormiga', mov.gastoHormiga ? 'Sí 🐜' : 'No'),
             const SizedBox(height: 16),
@@ -343,9 +364,17 @@ class _HistorialScreenState extends State<HistorialScreen> {
       padding: const EdgeInsets.symmetric(vertical: 4),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(label, style: const TextStyle(color: Color(0xFFB8B1CC), fontSize: 14)),
-          Text(valor, style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w600, fontSize: 14)),
+          const SizedBox(width: 12),
+          Expanded(
+            child: Text(
+              valor,
+              style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w600, fontSize: 14),
+              textAlign: TextAlign.end,
+            ),
+          ),
         ],
       ),
     );

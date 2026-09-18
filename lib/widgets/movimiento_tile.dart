@@ -27,7 +27,10 @@ class MovimientoTile extends StatelessWidget {
     return Card(
       color: const Color(0xFF2D2040),
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(12),
+        side: const BorderSide(color: Color(0xFF3A2E55), width: 0.5),
+      ),
       child: InkWell(
         onTap: onTap,
         borderRadius: BorderRadius.circular(12),
@@ -111,14 +114,18 @@ class MovimientoTile extends StatelessWidget {
                           ),
                         ),
                         const SizedBox(width: 10),
-                        Text(
-                          movimiento.categoria,
-                          style: const TextStyle(
-                            color: Colors.white38,
-                            fontSize: 12,
+                        Flexible(
+                          child: Text(
+                            movimiento.categoria,
+                            style: const TextStyle(
+                              color: Colors.white38,
+                              fontSize: 12,
+                            ),
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
                           ),
                         ),
-                        const Spacer(),
+                        const SizedBox(width: 10),
                         Text(
                           DateFormat('dd/MM/yy').format(movimiento.fecha),
                           style: const TextStyle(
@@ -133,12 +140,17 @@ class MovimientoTile extends StatelessWidget {
               ),
               const SizedBox(width: 12),
               // Monto
-              Text(
-                '$signo${formatoMonto.format(movimiento.monto)}',
-                style: TextStyle(
-                  color: colorMonto,
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
+              Flexible(
+                flex: 0,
+                child: Text(
+                  '$signo${formatoMonto.format(movimiento.monto)}',
+                  style: TextStyle(
+                    color: colorMonto,
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
                 ),
               ),
             ],

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'home_screen.dart';
 import 'historial_screen.dart';
+import 'estadisticas_screen.dart';
 
 class PrincipalScreen extends StatefulWidget {
   const PrincipalScreen({super.key});
@@ -15,12 +16,15 @@ class _PrincipalScreenState extends State<PrincipalScreen> {
   final GlobalKey<State<HomeScreen>> _homeKey = GlobalKey<State<HomeScreen>>();
   final GlobalKey<State<HistorialScreen>> _historialKey =
       GlobalKey<State<HistorialScreen>>();
+  final GlobalKey<State<EstadisticasScreen>> _estadisticasKey =
+      GlobalKey<State<EstadisticasScreen>>();
 
   @override
   Widget build(BuildContext context) {
     final paginas = [
       HomeScreen(key: _homeKey),
       HistorialScreen(key: _historialKey),
+      EstadisticasScreen(key: _estadisticasKey),
     ];
 
     return Scaffold(
@@ -47,12 +51,19 @@ class _PrincipalScreenState extends State<PrincipalScreen> {
           type: BottomNavigationBarType.fixed,
           items: const [
             BottomNavigationBarItem(
-              icon: Icon(Icons.home_rounded),
+              icon: Icon(Icons.home_outlined),
+              activeIcon: Icon(Icons.home_rounded),
               label: 'Inicio',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.receipt_long_rounded),
+              icon: Icon(Icons.receipt_long_outlined),
+              activeIcon: Icon(Icons.receipt_long_rounded),
               label: 'Historial',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.bar_chart_outlined),
+              activeIcon: Icon(Icons.bar_chart_rounded),
+              label: 'Estadísticas',
             ),
           ],
         ),

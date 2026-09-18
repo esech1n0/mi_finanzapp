@@ -93,15 +93,18 @@ class _HomeScreenState extends State<HomeScreen> {
         backgroundColor: const Color(0xFF120E1C),
         elevation: 0,
         title: const Row(
+          mainAxisSize: MainAxisSize.min,
           children: [
             Icon(Icons.account_balance_wallet_rounded, color: Color(0xFF9D65FF)),
             SizedBox(width: 10),
-            Text(
-              'MiFinanzapp',
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 20,
-                color: Color(0xFFF3EFFF),
+            Flexible(
+              child: Text(
+                'MiFinanzapp',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
+                  color: Color(0xFFF3EFFF),
+                ),
               ),
             ),
           ],
